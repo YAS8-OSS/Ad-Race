@@ -12,56 +12,75 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #fff7fb;
-      color: #333;
+      background: linear-gradient(to bottom right, #9b59b6, #f48fb1, #fff176);
+      color: #2c003e;
       margin: 0;
       padding: 0;
       text-align: center;
     }
-    header {
-  background-color: #fff7fb; /* نفس خلفية الموقع */
-  color: #c084fc; /* بنفسجي ناعم للعنوان */
-  padding: 20px;
-}
 
+    header {
+      padding: 50px 20px 20px;
+      background: linear-gradient(to right, #ff4081, #ffd54f);
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      margin: 20px auto 0;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: #4a0072;
+      text-shadow: none;
+      margin: 0;
     }
 
     #countdown {
-      font-size: 32px;
-      font-weight: bold;
-      color: #c084fc;
-      background: #fdf6ff;
-      border: 2px solid #c084fc;
-      border-radius: 12px;
-      padding: 10px 20px;
-      display: inline-block;
-      margin-top: 10px;
+      font-size: 2.5rem;
+      color: #4a0072;
+      margin-top: 15px;
+      text-shadow: none;
     }
 
     section {
-      margin: 40px auto;
+      background-color: #ffffffdd;
+      margin: 30px auto;
+      padding: 25px;
+      border-radius: 20px;
+      width: 90%;
       max-width: 600px;
-      background: #fff;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      color: #6a1b9a;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #333;
+      line-height: 1.6;
     }
 
     .form-button {
       display: inline-block;
-      margin: 10px;
-      background-color: #f472b6;
-      color: white;
-      padding: 12px 24px;
-      font-size: 18px;
-      border: none;
+      margin-top: 25px;
+      padding: 15px 30px;
+      background: linear-gradient(to right, #ff4081, #ffd54f);
+      color: #4a0072;
+      font-size: 1.2rem;
+      font-weight: bold;
       border-radius: 12px;
       text-decoration: none;
-      transition: background 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, background 0.3s;
     }
 
     .form-button:hover {
-      background-color: #ec4899;
+      transform: scale(1.05);
+      background: linear-gradient(to right, #f06292, #fff176);
     }
   </style>
 </head>
@@ -73,11 +92,11 @@
   </header>
 
   <!-- إعلان Google -->
-  <div style="background: #fdf6ff; border: 2px dashed #c084fc; border-radius: 16px; padding: 20px; margin: 20px; text-align: center;">
+  <div style="background: #fdf6ff; border: 2px dashed #c084fc; border-radius: 16px; padding: 20px; margin: 20px auto; max-width: 600px; text-align: center;">
     <ins class="adsbygoogle"
          style="display:block; text-align:center;"
          data-ad-client="ca-pub-3411186748228224"
-         data-ad-slot="1234567890" <!-- ← غيّري الرقم بعد القبول -->
+         data-ad-slot="1234567890"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
