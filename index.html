@@ -1,169 +1,23 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ad Race - تحدي الإعلانات</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #121212;
-      color: #f5f5f5;
-      margin: 0;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      justify-content: flex-start;
-      align-items: center;
-      text-align: center;
-    }
-    header {
-      padding: 40px 0 20px 0;
-    }
-    h1 {
-      color: #00e676;
-      font-size: 2.8rem;
-      margin-bottom: 0;
-    }
-    p.description {
-      font-size: 1.2rem;
-      margin-top: 5px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #a0a0a0;
-    }
-    section {
-      background: #1f1f1f;
-      border-radius: 12px;
-      max-width: 600px;
-      padding: 30px 20px;
-      margin: 20px 0;
-      box-shadow: 0 0 12px rgba(0,230,118,0.4);
-    }
-    h2 {
-      color: #00e676;
-      margin-bottom: 20px;
-    }
-    ol {
-      text-align: right;
-      margin-left: 20px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    input, textarea, button {
-      padding: 12px 15px;
-      border-radius: 8px;
-      border: none;
-      font-size: 1rem;
-      font-family: inherit;
-    }
-    input, textarea {
-      background: #2c2c2c;
-      color: #f5f5f5;
-      resize: vertical;
-    }
-    button {
-      background-color: #00e676;
-      color: #121212;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      border: none;
-    }
-    button:hover {
-      background-color: #00b248;
-    }
-    #countdown {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-top: 10px;
-      color: #00ff99;
-    }
-    footer {
-      margin-top: auto;
-      padding: 20px 0;
-      color: #555;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Ad Race - تحدي الإعلانات</h1>
-    <p class="description">
-      شارك في مسابقة <strong>Ad Race</strong>، شاهد 5 إعلانات، صور الشاشة أثناء المشاهدة، وارسل الفيديو للدخول في السحب على جوائز قيمة!
-    </p>
-  </header>
+<header>
+  <h1 style="font-size: 3rem;">Ad Race - تحدي الإعلانات</h1>
+  <div id="countdown" style="font-size: 2rem; margin-top: 10px; color: #00ff99;"></div>
+</header>
 
-  <section>
-    <h2>كيف تشارك؟</h2>
-    <ol>
-      <li>شاهد 5 إعلانات داخل التطبيق خلال فترة المسابقة.</li>
-      <li>صور الشاشة أو الفيديو أثناء مشاهدة الإعلانات.</li>
-      <li>ارسل الفيديو باستخدام النموذج أدناه.</li>
-      <li>استلم جائزتك البسيطة تلقائيًا وادخل السحب على الجائزة الكبرى!</li>
-    </ol>
-  </section>
+<section>
+  <h2>📢 تعليمات المشاركة</h2>
+  <p style="font-size: 1.1rem;">
+    شارك في مسابقة Ad Race، شاهد 5 إعلانات، صور الشاشة أثناء المشاهدة،  
+    ثم أرسل الفيديو للدخول في السحب على جوائز قيمة!  
+    <br><br>
+    ✅ كل المشاركين يحصلون على جائزة بسيطة  
+    🏆 والفائز يحصل على الجائزة الكبرى  
+  </p>
 
-  <section>
-    <h2>مدة المسابقة</h2>
-    <div id="countdown">جارِ العد التنازلي...</div>
-  </section>
+  <form id="submissionForm">
+    <input type="text" placeholder="ياسمين" required>
+    <input type="email" placeholder="wowli2009@gmail.com" required>
+    <input type="url" placeholder="رابط الفيديو (YouTube, Google Drive...)" required>
+    <button type="submit">أرسل المشاركة</button>
+  </form>
+</section>
 
-  <section>
-    <h2>أرسل فيديو المشاركة</h2>
-    <form id="submissionForm">
-      <input type="text" name="name" placeholder="الاسم الكامل" required />
-      <input type="email" name="email" placeholder="البريد الإلكتروني" required />
-      <input type="url" name="videoLink" placeholder="رابط الفيديو (YouTube, Google Drive...)" required />
-      <button type="submit">أرسل المشاركة</button>
-    </form>
-  </section>
-
-  <footer>
-    &copy; 2025 Ad Race. جميع الحقوق محفوظة.
-  </footer>
-
-  <script>
-    // ضبط تاريخ انتهاء المسابقة (مثال: 5 أيام من الآن)
-    const countdownElement = document.getElementById('countdown');
-    const endDate = new Date();
-    endDate.setDate(endDate.getDate() + 5);
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = endDate - now;
-
-      if (diff <= 0) {
-        countdownElement.textContent = 'انتهت المسابقة، شكرًا لمشاركتكم!';
-        clearInterval(interval);
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      countdownElement.textContent =
-        `${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
-    }
-
-    const interval = setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    // التعامل مع إرسال النموذج (مؤقت، ممكن تعدلي حسب طريقة الاستقبال)
-    document.getElementById('submissionForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('شكرًا لمشاركتك! سيتم مراجعة الفيديو قريبًا.');
-      this.reset();
-    });
-  </script>
-<script src="script.js"></script>
-</body>
-</html>
