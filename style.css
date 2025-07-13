@@ -83,3 +83,19 @@ footer {
   color: #555;
   font-size: 0.9rem;
 }
+.form-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 25px;
+  background-color: #00e676;
+  color: #121212;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #00c853;
+}
