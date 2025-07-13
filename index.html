@@ -8,6 +8,61 @@
   <!-- كود AdSense الرئيسي -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3411186748228224"
      crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff7fb;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: #c084fc;
+      color: white;
+      padding: 20px;
+    }
+
+    #countdown {
+      font-size: 32px;
+      font-weight: bold;
+      color: #c084fc;
+      background: #fdf6ff;
+      border: 2px solid #c084fc;
+      border-radius: 12px;
+      padding: 10px 20px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    section {
+      margin: 40px auto;
+      max-width: 600px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-button {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #f472b6;
+      color: white;
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .form-button:hover {
+      background-color: #ec4899;
+    }
+  </style>
 </head>
 <body>
 
@@ -21,7 +76,7 @@
     <ins class="adsbygoogle"
          style="display:block; text-align:center;"
          data-ad-client="ca-pub-3411186748228224"
-         data-ad-slot="1234567890"  <!-- ← غيّري هذا الرقم بعد القبول -->
+         data-ad-slot="1234567890"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
@@ -31,8 +86,8 @@
 
   <section>
     <h2>📢 كيف تشارك؟</h2>
-  <p>
-  شارك في تحدي Ad Race! اقضِ 3 دقائق داخل الموقع، ونفّذ المهام البسيطة، وصوّر تجربتك وارسل الفيديو للدخول في السحب!
+    <p>
+      شارك في تحدي Ad Race! اقضِ 3 دقائق داخل الموقع، ونفّذ المهام البسيطة، وصوّر تجربتك وارسل الفيديو للدخول في السحب!
       <br><br>
       🎁 كل المشاركين لهم جوائز بسيطة  
       🏆 الفائز يحصل على الجائزة الكبرى!
@@ -42,6 +97,24 @@
       📤 اضغط هنا لرفع فيديو المشاركة
     </a>
   </section>
+
+  <!-- عداد تنازلي -->
+  <script>
+    const countdown = document.getElementById("countdown");
+    let totalTime = 3 * 60; // 3 دقائق
+
+    function updateTimer() {
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      countdown.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      if (totalTime > 0) {
+        totalTime--;
+        setTimeout(updateTimer, 1000);
+      }
+    }
+
+    updateTimer();
+  </script>
 
 </body>
 </html>
