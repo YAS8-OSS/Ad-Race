@@ -1,33 +1,20 @@
-// ضبط تاريخ انتهاء المسابقة (مثال: 5 أيام من الآن)
-const countdownElement = document.getElementById('countdown');
-const endDate = new Date();
-endDate.setDate(endDate.getDate() + 5);
+// الوقت النهائي (مثلاً بعد يوم)
+const countdownDate = new Date("2025-07-20T23:59:59").getTime();
 
-function updateCountdown() {
-  const now = new Date();
-  const diff = endDate - now;
+const timer = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = countdownDate - now;
 
-  if (diff <= 0) {
-    countdownElement.textContent = 'انتهت المسابقة، شكرًا لمشاركتكم!';
-    clearInterval(interval);
-    return;
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+  if (distance < 0) {
+    clearInterval(timer);
+    document.getElementById("countdown").innerHTML = "انتهى الوقت!";
   }
+}, 1000);
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  countdownElement.textContent =
-    `${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
-}
-
-const interval = setInterval(updateCountdown, 1000);
-updateCountdown();
-
-// التعامل مع إرسال النموذج (مؤقت، ممكن تعدلي حسب طريقة الاستقبال)
-document.getElementById('submissionForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert('شكرًا لمشاركتك! سيتم مراجعة الفيديو قريبًا.');
-  this.reset();
-});
