@@ -35,7 +35,7 @@
   <h2>📞 التواصل</h2>
   <p>
     لأي استفسار أو مساعدة، يرجى التواصل مع  
-    <a href="https://www.tiktok.com/@adracehq" target="_blank" rel="noopener noreferrer">حساب يسوم على تيك توك</a>.
+    <a href="https://www.tiktok.com/@adracehq" target="_blank" rel="noopener noreferrer">حساب Ad Race على تيك توك</a>.
   </p>
 </section>
 
